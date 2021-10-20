@@ -100,13 +100,49 @@ def test_palindrom_concatenare():
 
 
 def get_list_mirror_if_all_elements_divisible(lst1, lst2, lst3):
+    """
+Citiți o a treia listă și afișați listele obținute prin înlocuirea în cele două liste citite la punctul 1 a
+tuturor elementelor cu oglinditul lor dacă îndeplinesc următoarea regulă: elementele sunt divizibile
+cu toate elementele din a treia lista. Dacă nu îndeplinesc regula, păstrați elementul așa cum e.
+    :param lst1: lista 1
+    :param lst2: lista 2
+    :param lst3: lista 3
+    :return: doua liste finale
+    """
+    lista_finala1 = []
+    lista_finala2 = []
+    for element in lst1:
+        div = True
+        for i in lst3:
+            if element % i == 0:
+                div = False
+                break
+            if div == True:
+                lista_finala1.append(str(element)[::-1])
+            else:
+                lista_finala1.append(str(element))
+    for element in lst2:
+        div = True
+        for i in lst3:
+            if element % i == 0:
+                div = False
+                break
+            if div == True:
+                lista_finala2.append(str(element)[::-1])
+            else:
+                lista_finala2.append(str(element))
+    return [lista_finala1, lista_finala2]
 
+
+def test_get_list_mirror_if_all_elements_divisible():
+    assert get_list_mirror_if_all_elements_divisible([12, 22, 36, 363], [22, 23, 36, 55, 363], [1, 2, 3, 4]) == [[21, 22, 63, 363], [22, 23, 63, 55, 363]]
 
 
 def main():
     test_check_list_for_equal_even_nr()
     test_list_intersection()
     test_palindrom_concatenare()
+    test_get_list_mirror_if_all_elements_divisible()
     lst1 = []
     lst2 = []
     while True:
@@ -129,9 +165,10 @@ def main():
             print("Palindroamele concatenate sunt: ")
             print(palindrom_concatenare(lst1, lst2))
         elif optiune == "5":
-            pass
+            print()
         elif optiune == "x":
-            break
+            lst3 = input("Alegeti lista 3").split(",")
+            get_list_mirror_if_all_elements_divisible(lst1, lst2, lst3)
         else:
             print("Reincercati!")
 

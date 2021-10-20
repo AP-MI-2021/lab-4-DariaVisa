@@ -118,9 +118,9 @@ cu toate elementele din a treia lista. Dacă nu îndeplinesc regula, păstrați 
                 div = False
                 break
             if div == True:
-                lista_finala1.append(str(element)[::-1])
+                lista_finala1.append(int(str(element)[::-1]))
             else:
-                lista_finala1.append(str(element))
+                lista_finala1.append(int(str(element)))
     for element in lst2:
         div = True
         for i in lst3:
@@ -128,9 +128,9 @@ cu toate elementele din a treia lista. Dacă nu îndeplinesc regula, păstrați 
                 div = False
                 break
             if div == True:
-                lista_finala2.append(str(element)[::-1])
+                lista_finala2.append(int(str(element)[::-1]))
             else:
-                lista_finala2.append(str(element))
+                lista_finala2.append(int(str(element)))
     return [lista_finala1, lista_finala2]
 
 

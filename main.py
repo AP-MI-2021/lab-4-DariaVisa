@@ -142,7 +142,7 @@ def main():
     test_check_list_for_equal_even_nr()
     test_list_intersection()
     test_palindrom_concatenare()
-    test_get_list_mirror_if_all_elements_divisible()
+
     lst1 = []
     lst2 = []
     while True:
